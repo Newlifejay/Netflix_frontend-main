@@ -34,5 +34,5 @@ jobs:
       # 4. Push image
       - name: Docker push
         run: |
-          docker tag netflix_frontend:latest 863355751988.dkr.ecr.us-east-2.amazonaws.com/netflix_frontend:${GITHUB_RUN_NUMBER}
+          docker tag netflix_frontend:${GITHUB_RUN_NUMBER} 863355751988.dkr.ecr.us-east-2.amazonaws.com/netflix_frontend:${GITHUB_RUN_NUMBER}
           docker push 863355751988.dkr.ecr.us-east-2.amazonaws.com/netflix_frontend:${GITHUB_RUN_NUMBER}
