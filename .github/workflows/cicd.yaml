@@ -23,7 +23,7 @@ jobs:
       # 3. Build Docker image
       - name: Build Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/netflix_frontend-main:${GITHUB_RUN_NUMBER} .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/netflix_frontend:${GITHUB_RUN_NUMBER} .
 
       # 4. Push image
       - name: Push Image
