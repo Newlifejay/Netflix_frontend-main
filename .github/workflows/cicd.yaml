@@ -32,7 +32,6 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/netflix_frontend:${GITHUB_RUN_NUMBER} .
 
       # 4. Push image
- 
       - name: Docker push
         run: |
           docker tag netflix_frontend:latest 863355751988.dkr.ecr.us-east-2.amazonaws.com/netflix_frontend:${GITHUB_RUN_NUMBER}
