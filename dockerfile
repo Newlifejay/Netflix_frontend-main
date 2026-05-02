@@ -1,23 +1,20 @@
-# -----------------------------
-# Stage 1: Build
-# -----------------------------
-FROM node:20-alpine AS builder
+# Use Node.js runtime
+FROM node:20-alpine
 
+# Set working directory
 WORKDIR /app
 
+# Copy dependencies first
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
+# Copy full project
 COPY . .
-RUN npm run build
 
-# -----------------------------
-# Stage 2: Serve with Nginx
-# -----------------------------
-FROM nginx:alpine
+# Expose React dev server port
+EXPOSE 3000
 
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Start the app
+CMD ["npm", "start"]
